@@ -1,0 +1,64 @@
+gigi<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+    <style>
+        table{
+            background-color: aqua;
+            width: 100%;
+            font-size: 20px;
+            font-family: arial, sans-serif;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Form</h2> 
+        <form id="firstform">
+          <label for="EmpID">EmpID:</label>
+          <input type="text" id="EmpID" name="EmpID" value="123"><br>
+        
+          <label for="EmpName">EmpName:</label>
+          <input type="text" id="EmpName" name="EmpName" value="abc"><br><br>
+        
+          <label for="Designation">Designation:</label>
+          <input type="text" id="Designation" name="Designation" value="SE"><br>
+        </form> 
+        <button type="Submit" id="Submit" onclick="addToTable()">Submit</button>
+
+        <p>If you click the "Submit" button, the form data will be sent to a table similar template below.</p>
+        </form>
+        <h2>Information</h2>
+        <table id="firstformTable">
+         <tr>
+             <th>EmpID</th>
+             <th>Name</th>
+            <th>Designation</th>
+         </tr>
+         <tbody>
+            <!-- Kq -->
+         </tbody>
+    </table>
+    <script>
+        function addToTable() {
+        const EmpID = document.getElementById("EmpID").value.trim();
+        const EmpName = document.getElementById("EmpName").value.trim();
+        const Designation = document.getElementById("Designation").value.trim();
+    
+        if (EmpID === "" || EmpName === "" || Designation === "") {
+          alert("Vui lòng nhập đầy đủ thông tin cần thực hiện!");
+          return;
+        }
+    
+        const table = document.getElementById("firstformTable").querySelector("tbody");
+        const newRow = table.insertRow();
+        
+        newRow.insertCell(0).innerText = EmpID;
+        newRow.insertCell(1).innerText = EmpName;
+        newRow.insertCell(2).innerText = Designation;
+        document.getElementById("firstform").reset();
+      }
+    </script>
+</body>
+</html>
